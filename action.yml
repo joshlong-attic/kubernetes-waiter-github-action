@@ -17,5 +17,5 @@ outputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.waitlist }}
+#  args:
+#    - ${{ inputs.waitlist }}
