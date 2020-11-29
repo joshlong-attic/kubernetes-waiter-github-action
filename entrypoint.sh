@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 
-java -jar waiter.jar "$INPUT_WAITLIST" && echo ::set-output name=success::true || echo ::set-output name=success::false
+java -jar /work/waiter.jar "$INPUT_WAITLIST" && echo ::set-output name=success::true || echo ::set-output name=success::false
 echo ::set-output name=time::$(date)
