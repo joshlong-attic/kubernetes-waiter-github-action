@@ -1,15 +1,21 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Kubernetes Service Availability Waiter'
+description: 'Waits for one or more Kubernetes services to become available, halting the workflow in its tracks until such time as they are available.'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  waitlist:
+    description: 'The comma-separated logical name or names of the services and pods on which we are to wait '
     required: true
-    default: 'World'
+  # todo some config to pass in the K8s context required to authenticate
+
 outputs:
+
+  success:
+    description: 'Was the run a success or not?'
+
   time: # id of output
-    description: 'The time we greeted you'
+    description: 'The time we were able to move on (through success or not)'
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.waitlist }}

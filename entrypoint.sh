@@ -1,6 +1,5 @@
 #!/bin/sh -l
 
-java -jar waiter.jar
-echo "Hello $1"
-time=$(date)
-echo ::set-output name=time::$time
+echo "\$1: [$1]"
+java -jar waiter.jar $1 && echo ::set-output name=success::true || echo ::set-output name=success::false
+echo ::set-output name=time::$(date)
