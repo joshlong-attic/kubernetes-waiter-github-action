@@ -3,4 +3,4 @@ COPY . /work
 COPY entrypoint.sh /work/entrypoint.sh
 COPY waiter.jar  /work/waiter.jar
 WORKDIR /work
-CMD ["/bin/bash", "entrypoint.sh"]
+CMD [  "/work/entrypoint.sh"]
