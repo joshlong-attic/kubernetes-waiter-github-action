@@ -1,6 +1,11 @@
 name: 'Kubernetes Service Availability Waiter'
 description: 'Waits for one or more Kubernetes services to become available, halting the workflow in its tracks until such time as they are available.'
 inputs:
+
+  kubeconfig:
+    description: 'The ~/.kube/config configuration file base64 encoded'
+    required: true
+
   waitlist:
     description: 'The comma-separated logical name or names of the services and pods on which we are to wait '
     required: true

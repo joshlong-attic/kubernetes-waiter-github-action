@@ -8,6 +8,9 @@
 env
 
 cd $GITHUB_WORKSPACE && ls -la && find .
-
-java -Dwaiter.application-names="$INPUT_WAITLIST" -jar /work/waiter.jar   && echo ::set-output name=success::true || echo ::set-output name=success::false
+KDIR=$HOME/.kube/
+mkdir -p $KDIR
+echo $INPUT_KUBECONFIG | base64 -d
+ > ${KDIR}/config
+java -Dwaiter.application-names="$INPUT_WAITLIST" -jar /work/waiter.jar && echo ::set-output name=success::true || echo ::set-output name=success::false
 echo ::set-output name=time::$(date)
