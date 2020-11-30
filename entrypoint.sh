@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+echo "------------------------------------------------------------"
 cat ~/.kube/config | grep -v token  | grep -v certifi
+echo "------------------------------------------------------------"
+cat ${GITHUB_WORKSPACE}/.kube/config | grep -v token  | grep -v certifi
 
 env
 
