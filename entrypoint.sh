@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
-#echo "------------------------------------------------------------"
-#cat ~/.kube/config | grep -v token  | grep -v certifi
-#echo "------------------------------------------------------------"
-#cat ${GITHUB_WORKSPACE}/.kube/config | grep -v token  | grep -v certifi
-
-env
-
-cd $GITHUB_WORKSPACE && ls -la && find .
+echo "Inside the Kubernetes Waiter"
 KDIR=$HOME/.kube/
 mkdir -p $KDIR
 echo $INPUT_KUBECONFIG | base64 -d > ${KDIR}/config
